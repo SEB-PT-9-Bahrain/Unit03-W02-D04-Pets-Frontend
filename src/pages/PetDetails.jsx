@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { Link, useParams } from "react-router"
+
+
+// Exercise 1:
+// 1. Create a button `Delete Pet`
+// 2. Create a function called deletePet() that sends axios DELETE call to api to delete this pet by id
+// 3. Add the deletePet as handleClick function for button
 function PetDetails() {
     const [ pet, setPet ] = useState(null)
 
@@ -9,6 +15,11 @@ function PetDetails() {
     async function getPet(){
         const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/pets/${petId}`)
         setPet(response.data)
+    }
+
+    async function deletePet(){
+        const response = await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/pets/${petId}`)
+
     }
 
     useEffect(()=>{
@@ -21,6 +32,7 @@ function PetDetails() {
         <h2>Name: {pet.name}</h2>
         <p>Age: {pet.age}</p>
         <p>Breed: {pet.breed}</p>
+        <button onClick={()=>{deletePet(pet._id)}}>Delete Pet</button>
         </> : <p>Loading...</p>}
     </div>
   )
