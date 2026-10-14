@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
-import { Link, useParams } from "react-router"
+import { Link, useParams, useNavigate } from "react-router"
 
 
 // Exercise 1:
@@ -11,6 +11,7 @@ function PetDetails() {
     const [ pet, setPet ] = useState(null)
 
     const {petId} = useParams()
+    const navigate = useNavigate()
 
     async function getPet(){
         const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/pets/${petId}`)
@@ -19,6 +20,7 @@ function PetDetails() {
 
     async function deletePet(){
         const response = await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/pets/${petId}`)
+        navigate('/pets')
 
     }
 
