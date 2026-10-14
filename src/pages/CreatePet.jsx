@@ -9,11 +9,15 @@ function CreatePet() {
         breed:''
     })
 
+    const navigate = useNavigate()
     function handleChange(event){
         setFormData({...formData,[event.target.name]:event.target.value})
     }
     async function handleSubmit(event){
         event.preventDefault()
+
+        const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/pets`,formData)
+        navigate('/pets')
     }
   return (
     <div>
