@@ -15,7 +15,14 @@ function PetDetails() {
         getPet()
     },[])
   return (
-    <div>PetDetails</div>
+    <div>
+        <h1>Pet Details</h1>
+        {pet ? <>
+        <h2>Name: {pet.name}</h2>
+        <p>Age: {pet.age}</p>
+        <p>Breed: {pet.breed}</p>
+        </> : <p>Loading...</p>}
+    </div>
   )
 }
 
