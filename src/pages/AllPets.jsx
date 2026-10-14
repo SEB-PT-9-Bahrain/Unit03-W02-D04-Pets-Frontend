@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import axios from 'axios'
+import { Link } from "react-router"
 function AllPets() {
     const [ pets, setPets ] = useState([])
 
@@ -18,6 +19,7 @@ function AllPets() {
         {pets.map((onePet)=> 
         <div>
             <h2>Name: {onePet.name}</h2>
+            <Link to={`/pets/${onePet._id}`}>See Pet Details</Link>
         </div>
         )}
     </div>
