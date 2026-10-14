@@ -1,7 +1,7 @@
 import { useState } from "react"
 import axios from "axios"
 import { useNavigate } from 'react-router'
-
+import { createNewPet } from "../services/PetServices"
 function CreatePet() {
     const [ formData, setFormData ] = useState({
         name:'',
@@ -16,7 +16,7 @@ function CreatePet() {
     async function handleSubmit(event){
         event.preventDefault()
 
-        const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/pets`,formData)
+        const response = await createNewPet(formData)
         navigate('/pets')
     }
   return (

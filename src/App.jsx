@@ -5,7 +5,9 @@ import EditPet from "./pages/EditPet"
 import Navbar from "./components/Navbar"
 import { Routes, Route } from 'react-router'
 import Homepage from "./pages/Homepage"
+import { callSayedHamed } from "./myFunctions"
 function App() {
+  callSayedHamed()
   return (
     <div>
       <Navbar/>
