@@ -16,7 +16,39 @@ function CreatePet() {
         event.preventDefault()
     }
   return (
-    <div>CreatePet</div>
+    <div>
+        <h1>Create Pet</h1>
+
+        <form onSubmit={handleSubmit}>
+            <label htmlFor="name">Name:</label>
+            <input 
+            type="text" 
+            name="name"
+            id="name"
+            onChange={handleChange}
+            value={formData.name}
+            />
+
+            <label htmlFor="age">Age:</label>
+            <input 
+            type="text"
+            name="age"
+            id="age"
+            onChange={handleChange}
+            value={formData.age}
+             />
+
+            <label htmlFor="breed">Breed:</label>
+            <input 
+            type="text"
+            name="breed"
+            id="breed"
+            onChange={handleChange}
+            value={formData.breed}
+             />
+             <button>Create Pet</button>
+        </form>
+    </div>
   )
 }
 
