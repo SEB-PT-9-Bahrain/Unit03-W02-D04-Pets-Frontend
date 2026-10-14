@@ -1,8 +1,26 @@
-import React from 'react'
-
+import { useState, useEffect } from "react"
+import axios from 'axios'
 function AllPets() {
+    const [ pets, setPets ] = useState([])
+
+    async function getAllPets(){
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/pets`)
+        setPets(response.data)
+    }
+
+    useEffect(()=>{
+        getAllPets()
+    },[])
   return (
-    <div>AllPets</div>
+    <div>
+        <h1>All Pets</h1>
+
+        {pets.map((onePet)=> 
+        <div>
+            <h2>Name: {onePet.name}</h2>
+        </div>
+        )}
+    </div>
   )
 }
 
