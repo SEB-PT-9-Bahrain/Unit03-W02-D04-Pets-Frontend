@@ -33,7 +33,7 @@ function EditPet() {
         const response = await axios.put(`${import.meta.env.VITE_BACKEND_URL}/pets/${petId}`, formData)
 
 
-        navigate('/pets')
+        navigate('/pets/' + response.data._id)
 
       
     }
