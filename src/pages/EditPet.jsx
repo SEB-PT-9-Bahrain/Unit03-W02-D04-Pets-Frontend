@@ -30,6 +30,11 @@ function EditPet() {
     async function handleSubmit(event){
         event.preventDefault()
 
+        const response = await axios.put(`${import.meta.env.VITE_BACKEND_URL}/pets/${petId}`, formData)
+
+
+        navigate('/pets')
+
       
     }
 
@@ -65,7 +70,7 @@ function EditPet() {
             onChange={handleChange}
             value={formData.breed}
              />
-             <button>Create Pet</button>
+             <button>Update Pet</button>
         </form>
     </div>
   )
