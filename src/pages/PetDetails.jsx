@@ -35,6 +35,7 @@ function PetDetails() {
         <p>Age: {pet.age}</p>
         <p>Breed: {pet.breed}</p>
         <button onClick={()=>{deletePet(pet._id)}}>Delete Pet</button>
+        <Link to={`/pets/${pet._id}/edit`}>Edit Pet</Link>
         </> : <p>Loading...</p>}
     </div>
   )
